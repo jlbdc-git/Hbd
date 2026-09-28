@@ -466,17 +466,16 @@ st.markdown(f"""
     <h2>📝 A Birthday Message</h2>
     <div class="message">
         Hey <b>{FRIEND_NAME}</b>! <span class="star">🌟</span><br><br>
-        Happy birthday! I hope this new chapter brings you so many reasons
-        to smile, laugh until your stomach hurts, discover new things,
-        and make memories you'll want to keep forever.
+        Happy birthday! Wishing you this new beginning brings you plenty of
+        smiles, laughter, fun discoveries, and memories that you want to
+        cherish forever.
         <br><br>
-        You deserve a day filled with good food, great people,
-        beautiful surprises, and absolutely <b>zero stress</b>.
-        🌈✨
+        You deserve a whole day full of tasty food, lovely people,
+        delightful surprises, and absolutely <b>no worries</b>. ✨
         <br><br>
-        Keep being your wonderful self, keep chasing the things that make
-        you happy, and don't forget that there are people cheering for you.
-        Today, tomorrow, and all the days after. 🎉
+        Continue being the amazing person you are, chase those dreams,
+        keep smiling, and never forget that there are people rooting for you.
+        On your birthday today and every day hereafter. 🎉
     </div>
 </div>
 """, unsafe_allow_html=True)
