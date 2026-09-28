@@ -354,6 +354,25 @@ html, body, [class*="css"] {
 }
 
 
+/* Button styling for better visibility */
+.stButton > button {
+    background: linear-gradient(135deg, #ff6b6b, #ffa502) !important;
+    color: white !important;
+    font-weight: 700 !important;
+    border: none !important;
+    box-shadow: 0 4px 15px rgba(255, 107, 107, 0.4) !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.2) !important;
+}
+.stButton > button:hover {
+    background: linear-gradient(135deg, #ff8787, #ffb84d) !important;
+    box-shadow: 0 6px 20px rgba(255, 107, 107, 0.6) !important;
+    transform: translateY(-2px) !important;
+}
+.stButton > button:active {
+    transform: translateY(0) !important;
+}
+
+
 @media (max-width: 700px) {
     .memory-grid { grid-template-columns: 1fr; }
     .hero { padding-top: 25px; }
@@ -512,6 +531,6 @@ if st.button("💫 Open the Secret Message", use_container_width=True):
 
 st.markdown(f"""
 <div class="footer">
-    Hope you have an awesome birthday! 🎂
+    Made with 🎉 by {YOUR_NAME} · Hope you have an awesome birthday! 🎂
 </div>
 """, unsafe_allow_html=True)
