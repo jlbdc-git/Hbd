@@ -568,22 +568,21 @@ if st.button("💫 Open the Secret Message", use_container_width=True):
                 font-weight: 700;
                 line-height: 1.7;
             ">
-            Hi! I hope this message finds you well! Gusto ko lang sabihin na Happy na Birthday mo pa! HAHAHAHAHA🎉✨
+            1, 2, 3… 🎶 HAAAPPYYY BIRTHHHDAYYY TOOO YOUUU 🎶! HAHAHAHAH 🎉✨
             <br><br>
-            I wish that this day becomes extra memorable and special for you. 
-            Sana may time ka to celebrate with your family, friends, or anyone close to you. 
-            I know hindi tayo ganun kaclose but still this is one way for me to show you that I really want to know you more.
+            Wishing you a day as special as you areee. I hope you spend and celebrate your birthday with your family, friends, or anyone close to you very well. 
+            I know hindi tayo ganun kaclose HAHAHAHA and hindi ko rin alam bat ako bumabati sayo ng ganto HAHAHAHA… 
+            but still this is one way for me to show you that I really want to know you more.
             <br><br>
-            I know you're busy and baka may duty ka pa ngayong araw, pero sana kahit papaano you don't forget about yourself. 
-            Eat your favorite food especially tteokbokki, treat yourself, watch your fav anime/movies, and take a moment to breathe and enjoy your day! 
+            I know youre busy and baka may duty ka pa ngayong araw, pero sana kahit papaano you dont forget about yourself. 
             You deserve all the good things and rest after all the hard work you put in.
             <br><br>
             I'm praying for your good health, continuous success, and peace of mind. 
             Sana lahat ng silent prayers, dreams and goals, and all of your hearts desires come true this year. 
             Stay the amazing person you are, and don't forget to smile, that's just one of the aspects I notice about you. 
-            (singit ko narin pla, sana may sweldo na HAHAHAHA)
             <br><br>
             Enjoy your Day, and Happy, happy birthday ulit!!
+            
             </div>
         </div>
         """,
