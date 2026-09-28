@@ -72,8 +72,8 @@ html, body, [class*="css"] {
 .hero h1 {
     font-family: 'Pacifico', cursive;
     font-size: clamp(3.2rem, 9vw, 7rem);
-    line-height: 1.35;
-    margin: 16px 0;
+    line-height: 1.55;
+    margin: 18px 0;
     background: linear-gradient(90deg, #ff6b6b, #ffa502, #4ecdc4, #45b7d1);
     background-size: 300% 300%;
     -webkit-background-clip: text;
