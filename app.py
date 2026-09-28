@@ -32,18 +32,9 @@ st.markdown(
     """
     <style>
 
-    @import url(
-        'https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800'
-        '&family=Pacifico&display=swap'
-    );
+    @import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Pacifico&display=swap');
 
-    /* --------------------------------------------------------
-       GLOBAL
-    -------------------------------------------------------- */
-
-    html,
-    body,
-    [class*="css"] {
+    html, body, [class*="css"] {
         font-family: "Baloo 2", sans-serif;
     }
 
@@ -81,9 +72,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       HERO
-    -------------------------------------------------------- */
+    /* HERO */
 
     .hero {
         text-align: center;
@@ -126,7 +115,11 @@ st.markdown(
         color: #715d72;
     }
 
+
+    /* GRADIENT ANIMATION */
+
     @keyframes gradientMove {
+
         0% {
             background-position: 0% 50%;
         }
@@ -138,12 +131,11 @@ st.markdown(
         100% {
             background-position: 0% 50%;
         }
+
     }
 
 
-    /* --------------------------------------------------------
-       SPARKLES
-    -------------------------------------------------------- */
+    /* SPARKLES */
 
     .sparkles {
         font-size: 2rem;
@@ -152,6 +144,7 @@ st.markdown(
     }
 
     @keyframes sparkle {
+
         from {
             opacity: 0.45;
             transform: scale(0.96);
@@ -161,15 +154,15 @@ st.markdown(
             opacity: 1;
             transform: scale(1.05);
         }
+
     }
 
 
-    /* --------------------------------------------------------
-       CARDS
-    -------------------------------------------------------- */
+    /* CARDS */
 
     .card {
         background: rgba(255, 255, 255, 0.74);
+
         border: 1px solid rgba(255, 255, 255, 0.9);
 
         box-shadow:
@@ -196,9 +189,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       CAKE
-    -------------------------------------------------------- */
+    /* CAKE */
 
     .birthday-cake {
         text-align: center;
@@ -213,6 +204,7 @@ st.markdown(
     }
 
     @keyframes cakeFloat {
+
         0%,
         100% {
             transform:
@@ -225,12 +217,11 @@ st.markdown(
                 translateY(-12px)
                 rotate(1deg);
         }
+
     }
 
 
-    /* --------------------------------------------------------
-       FLOATING DECORATIONS
-    -------------------------------------------------------- */
+    /* FLOATING DECORATIONS */
 
     .floating {
         position: fixed;
@@ -246,6 +237,7 @@ st.markdown(
     }
 
     @keyframes floatUp {
+
         0% {
             transform:
                 translateY(110vh)
@@ -269,12 +261,11 @@ st.markdown(
 
             opacity: 0;
         }
+
     }
 
 
-    /* --------------------------------------------------------
-       BIRTHDAY STATUS
-    -------------------------------------------------------- */
+    /* BIRTHDAY STATUS */
 
     .status-grid {
         display: grid;
@@ -353,9 +344,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       BIRTHDAY OBJECTIVES
-    -------------------------------------------------------- */
+    /* BIRTHDAY OBJECTIVES */
 
     .memory-grid {
         display: grid;
@@ -458,9 +447,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       WISH
-    -------------------------------------------------------- */
+    /* WISH */
 
     .wish {
         text-align: center;
@@ -489,9 +476,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       FINAL MESSAGE
-    -------------------------------------------------------- */
+    /* FINAL MESSAGE */
 
     .final-message {
         text-align: center;
@@ -525,9 +510,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       FOOTER
-    -------------------------------------------------------- */
+    /* FOOTER */
 
     .footer {
         text-align: center;
@@ -540,9 +523,7 @@ st.markdown(
     }
 
 
-    /* --------------------------------------------------------
-       MOBILE
-    -------------------------------------------------------- */
+    /* MOBILE */
 
     @media (max-width: 700px) {
 
@@ -557,6 +538,7 @@ st.markdown(
         .hero {
             padding-top: 25px;
         }
+
     }
 
     </style>
@@ -583,6 +565,7 @@ decorations = [
 ]
 
 for item in decorations:
+
     left = random.randint(3, 95)
     duration = random.randint(9, 18)
     delay = random.randint(0, 8)
@@ -642,9 +625,9 @@ st.markdown(
 # CELEBRATION BUTTON
 # ============================================================
 
-c1, c2, c3 = st.columns([1, 1.4, 1])
+column_1, column_2, column_3 = st.columns([1, 1.4, 1])
 
-with c2:
+with column_2:
 
     if st.button(
         "🎉 LET'S CELEBRATE! 🎉",
@@ -1076,4 +1059,3 @@ st.markdown(
     """,
     unsafe_allow_html=True,
 )
-
