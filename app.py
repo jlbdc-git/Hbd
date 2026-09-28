@@ -487,46 +487,19 @@ st.markdown("""
 <div class="card">
     <h2>🌟 The Birthday Vibe</h2>
     <div class="memory-grid">
-        <div class="memory m1">
-            <div class="memory-icon">😂</div>
-            <b>More laughs</b>
-            <small>Because life needs more ridiculous moments.</small>
-        </div>
-
-        <div class="memory m2">
-            <div class="memory-icon">🌍</div>
-            <b>More adventures</b>
-            <small>New places, new memories, new stories.</small>
-        </div>
-
-        <div class="memory m3">
-            <div class="memory-icon">📈</div>
-            <b>More growth</b>
-            <small>Keep becoming the person you want to be.</small>
-        </div>
-
-        <div class="memory m4">
-            <div class="memory-icon">☀️</div>
-            <b>More happiness</b>
-            <small>The kind that appears in tiny everyday moments.</small>
-        </div>
-
+        <div class="memory m1"><span style="font-size:2rem">😂</span><b>More laughs</b><small>Because life needs more ridiculous moments.</small></div>
+        <div class="memory m2"><span style="font-size:2rem">🌍</span><b>More adventures</b><small>New places, new memories, new stories.</small></div>
+        <div class="memory m3"><span style="font-size:2rem">📈</span><b>More growth</b><small>Keep becoming the person you want to be.</small></div>
+        <div class="memory m4"><span style="font-size:2rem">☀️</span><b>More happiness</b><small>The kind that appears in tiny everyday moments.</small></div>
         <div class="memory m5">
-            <div class="memory-icon">
-                <img
-                    src="https://imgproxy.attic.sh/insecure/f:webp/q:90/w:1920/plain/https://attic.sh/mxl6wk2k0yrvctx5ygxmfcze1fam"
-                    alt="Tteokbokki"
-                >
-            </div>
+            <img
+                src="https://imgproxy.attic.sh/insecure/f:webp/q:90/w:1920/plain/https://attic.sh/mxl6wk2k0yrvctx5ygxmfcze1fam"
+                style="width:90px;height:90px;object-fit:contain;margin-bottom:8px;"
+            >
             <b>More tteokbokki</b>
             <small>Because one serving is never enough. 😂</small>
         </div>
-
-        <div class="memory m6">
-            <div class="memory-icon">🎉</div>
-            <b>More good times</b>
-            <small>With the people who care about you.</small>
-        </div>
+        <div class="memory m6"><span style="font-size:2rem">🎉</span><b>More good times</b><small>With the people who care about you.</small></div>
     </div>
 </div>
 """, unsafe_allow_html=True)
