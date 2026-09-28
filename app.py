@@ -670,12 +670,5 @@ st.markdown(f"""
     <br>
 
     For <b>{FRIEND_NAME}</b>'s birthday 🎉
-
-    <br>
-
-    <small>
-        Yes, I really made an entire website for this. 😂
-    </small>
-
 </div>
 """, unsafe_allow_html=True)
