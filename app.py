@@ -23,12 +23,17 @@ st.set_page_config(
 FRIEND_NAME = "Shaznay"
 YOUR_NAME = "BM"
 
+def render_html(html: str):
+    """Render trusted HTML/CSS through Streamlit."""
+    render_html(html, unsafe_allow_html=True)
+
+
 
 # ============================================================
 # CUSTOM CSS
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <style>
 
@@ -542,8 +547,7 @@ st.markdown(
     }
 
     </style>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -571,7 +575,7 @@ for item in decorations:
     delay = random.randint(0, 8)
     size = random.randint(18, 34)
 
-    st.markdown(
+    render_html(
         f"""
         <div
             class="floating"
@@ -593,7 +597,7 @@ for item in decorations:
 # HERO
 # ============================================================
 
-st.markdown(
+render_html(
     f"""
     <div class="hero">
 
@@ -616,8 +620,7 @@ st.markdown(
         </p>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -648,9 +651,8 @@ with column_2:
 # CAKE
 # ============================================================
 
-st.markdown(
-    '<div class="birthday-cake">🎂</div>',
-    unsafe_allow_html=True,
+render_html(
+    '<div class="birthday-cake">🎂</div>'
 )
 
 
@@ -658,7 +660,7 @@ st.markdown(
 # BIRTHDAY STATUS
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div class="card">
 
@@ -711,8 +713,7 @@ st.markdown(
         </div>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -720,7 +721,7 @@ st.markdown(
 # BIRTHDAY MESSAGE
 # ============================================================
 
-st.markdown(
+render_html(
     f"""
     <div class="card">
 
@@ -764,8 +765,7 @@ st.markdown(
         </div>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -773,7 +773,7 @@ st.markdown(
 # BIRTHDAY OBJECTIVES
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div class="card">
 
@@ -892,8 +892,7 @@ st.markdown(
         </div>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -901,7 +900,7 @@ st.markdown(
 # RANDOM BIRTHDAY WISH
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div class="card">
 
@@ -916,8 +915,7 @@ st.markdown(
         </p>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -946,7 +944,7 @@ if st.button(
 
 if "wish" in st.session_state:
 
-    st.markdown(
+    render_html(
         f"""
         <div class="wish">
 
@@ -964,7 +962,7 @@ if "wish" in st.session_state:
 # SECRET MESSAGE
 # ============================================================
 
-st.markdown(
+render_html(
     """
     <div class="card">
 
@@ -978,8 +976,7 @@ st.markdown(
         </p>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -1007,7 +1004,7 @@ if st.button(
 # FINAL MESSAGE
 # ============================================================
 
-st.markdown(
+render_html(
     f"""
     <div class="final-message">
 
@@ -1035,8 +1032,7 @@ st.markdown(
         </p>
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
 
 
@@ -1044,18 +1040,16 @@ st.markdown(
 # FOOTER
 # ============================================================
 
-st.markdown(
+render_html(
     f"""
     <div class="footer">
 
-        Made with 🎀, questionable amounts of CSS,
-        and a little bit of effort by <b>{YOUR_NAME}</b>.
+        Because saying “Happy Birthday” wasn't dramatic enough. 😂🎂
 
         <br>
 
         For <b>{FRIEND_NAME}</b>'s birthday 🎂
 
     </div>
-    """,
-    unsafe_allow_html=True,
+    """
 )
