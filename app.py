@@ -18,15 +18,6 @@ FRIEND_NAME = "Shaznay"
 YOUR_NAME = "BM"
 
 
-# Initialize session state
-if "confetti_clicked" not in st.session_state:
-    st.session_state["confetti_clicked"] = 0
-if "trivia_score" not in st.session_state:
-    st.session_state["trivia_score"] = 0
-if "trivia_shown" not in st.session_state:
-    st.session_state["trivia_shown"] = False
-
-
 # -----------------------------
 # CSS / animations
 # -----------------------------
@@ -70,6 +61,11 @@ html, body, [class*="css"] {
     letter-spacing: 3px;
     text-transform: uppercase;
     font-size: 0.9rem;
+    animation: labelPulse 2s ease-in-out infinite;
+}
+@keyframes labelPulse {
+    0%, 100% { opacity: 1; transform: scale(1); }
+    50% { opacity: 0.85; transform: scale(1.05); }
 }
 
 
@@ -83,12 +79,18 @@ html, body, [class*="css"] {
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     animation: gradientMove 5s ease infinite;
+    filter: drop-shadow(0 4px 12px rgba(255, 165, 2, 0.3));
 }
 
 
 .hero p {
     font-size: 1.3rem;
     color: #5a6b7c;
+    animation: textFade 3s ease-in-out infinite;
+}
+@keyframes textFade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.85; }
 }
 
 
@@ -105,25 +107,52 @@ html, body, [class*="css"] {
     animation: sparkle 2s ease-in-out infinite alternate;
 }
 @keyframes sparkle {
-    from { opacity: .45; transform: scale(.96); }
-    to { opacity: 1; transform: scale(1.05); }
+    from { opacity: .45; transform: scale(.96) rotate(-5deg); }
+    to { opacity: 1; transform: scale(1.05) rotate(5deg); }
 }
 
 
 .card {
     background: rgba(255,255,255,.72);
-    border: 1px solid rgba(255,255,255,.9);
-    box-shadow: 0 18px 45px rgba(100, 120, 140, .13);
+    border: 2px solid rgba(255,255,255,.9);
+    box-shadow: 0 18px 45px rgba(100, 120, 140, .13), 0 0 0 4px rgba(255, 215, 100, 0.1);
     backdrop-filter: blur(14px);
     border-radius: 28px;
     padding: 28px;
     margin: 18px 0;
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: linear-gradient(45deg, transparent, rgba(255, 215, 100, 0.1), transparent);
+    transform: rotate(45deg);
+    animation: shimmer 3s infinite;
+}
+@keyframes shimmer {
+    0% { transform: translateX(-100%) rotate(45deg); }
+    100% { transform: translateX(100%) rotate(45deg); }
+}
+.card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 24px 60px rgba(100, 120, 140, .18), 0 0 0 4px rgba(255, 215, 100, 0.2);
 }
 
 
 .card h2 {
     color: #4a6fa5;
     margin-top: 0;
+    animation: titleBounce 2s ease-in-out infinite;
+}
+@keyframes titleBounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
 }
 
 
@@ -151,8 +180,8 @@ html, body, [class*="css"] {
     animation: starPulse 1.5s infinite;
 }
 @keyframes starPulse {
-    0%, 40%, 100% { transform: scale(1); }
-    20% { transform: scale(1.22); }
+    0%, 40%, 100% { transform: scale(1) rotate(0deg); }
+    20% { transform: scale(1.22) rotate(10deg); }
 }
 
 
@@ -170,10 +199,27 @@ html, body, [class*="css"] {
     flex-direction: column;
     justify-content: flex-end;
     box-shadow: 0 12px 25px rgba(80,100,120,.13);
-    transition: transform .25s ease;
+    transition: all .3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.memory::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(135deg, rgba(255,255,255,0.2), transparent);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+.memory:hover::after {
+    opacity: 1;
 }
 .memory:hover {
-    transform: translateY(-8px) rotate(1deg);
+    transform: translateY(-8px) rotate(1deg) scale(1.03);
+    box-shadow: 0 20px 40px rgba(80,100,120,.25);
 }
 .m1 { background: linear-gradient(135deg,#ff9966,#ff5e62); }
 .m2 { background: linear-gradient(135deg,#56ab2f,#a8e063); }
@@ -188,6 +234,12 @@ html, body, [class*="css"] {
     background: linear-gradient(135deg, rgba(255,240,200,.85), rgba(200,240,255,.85));
     border-radius: 30px;
     padding: 35px 25px;
+    animation: wishGlow 2s ease-in-out infinite;
+    box-shadow: 0 10px 40px rgba(255, 165, 2, 0.2);
+}
+@keyframes wishGlow {
+    0%, 100% { box-shadow: 0 10px 40px rgba(255, 165, 2, 0.2); }
+    50% { box-shadow: 0 10px 60px rgba(255, 165, 2, 0.35); }
 }
 
 
@@ -195,6 +247,11 @@ html, body, [class*="css"] {
     font-family: 'Pacifico', cursive;
     font-size: 2.2rem;
     color: #ff8c42;
+    animation: wishText 3s ease-in-out infinite;
+}
+@keyframes wishText {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.05); }
 }
 
 
@@ -203,6 +260,11 @@ html, body, [class*="css"] {
     color:#6b7280;
     padding: 35px 0 10px;
     font-size: .95rem;
+    animation: footerFade 4s ease-in-out infinite;
+}
+@keyframes footerFade {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.7; }
 }
 
 
@@ -214,125 +276,107 @@ html, body, [class*="css"] {
     opacity: .7;
 }
 @keyframes floatUp {
-    0% { transform: translateY(110vh) rotate(0deg); opacity:0; }
+    0% { transform: translateY(110vh) rotate(0deg) scale(0.8); opacity:0; }
     15% { opacity:.75; }
     85% { opacity:.75; }
-    100% { transform: translateY(-15vh) rotate(360deg); opacity:0; }
+    100% { transform: translateY(-15vh) rotate(720deg) scale(1.2); opacity:0; }
 }
 
 
-/* Gallery styles */
-.gallery-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 14px;
+/* Twinkling stars */
+.twinkle {
+    position: fixed;
+    pointer-events: none;
+    z-index: 0;
+    animation: twinkle 2s ease-in-out infinite;
 }
-.gallery-item {
-    background: white;
-    border-radius: 18px;
-    padding: 16px;
-    text-align: center;
-    box-shadow: 0 8px 20px rgba(0,0,0,.08);
-    transition: all .3s ease;
-    cursor: pointer;
+@keyframes twinkle {
+    0%, 100% { opacity: 0.3; transform: scale(0.8); }
+    50% { opacity: 1; transform: scale(1.2); }
 }
-.gallery-item:hover {
-    transform: translateY(-6px) scale(1.03);
-    box-shadow: 0 14px 30px rgba(0,0,0,.15);
-}
-.gallery-emoji {
+
+
+/* Corner decorations */
+.corner-decoration {
+    position: fixed;
     font-size: 3rem;
-    display: block;
-    margin-bottom: 8px;
+    z-index: 0;
+    opacity: 0.6;
+    animation: cornerFloat 4s ease-in-out infinite;
 }
-.gallery-text {
-    font-size: 0.95rem;
-    color: #5a6b7c;
-    font-weight: 600;
-}
-
-
-/* Trivia styles */
-.trivia-container {
-    background: linear-gradient(135deg, #fff5e6, #e6f3ff);
-    border-radius: 24px;
-    padding: 24px;
-    margin: 16px 0;
-}
-.trivia-question {
-    font-size: 1.2rem;
-    font-weight: 700;
-    color: #4a6fa5;
-    margin-bottom: 16px;
-}
-.trivia-options button {
-    margin: 6px 4px;
-    border-radius: 12px;
-    padding: 10px 18px;
-    font-weight: 600;
+@keyframes cornerFloat {
+    0%, 100% { transform: translateY(0) rotate(0deg); }
+    50% { transform: translateY(-10px) rotate(10deg); }
 }
 
 
-/* Time capsule */
-.capsule {
-    background: linear-gradient(135deg, #667eea, #764ba2);
-    color: white;
-    border-radius: 26px;
-    padding: 32px;
-    text-align: center;
+/* Confetti burst */
+.confetti {
+    position: fixed;
+    width: 10px;
+    height: 10px;
+    background: #ff6b6b;
+    animation: confettiFall 3s linear infinite;
 }
-.capsule-title {
-    font-family: 'Pacifico', cursive;
-    font-size: 2rem;
-    margin-bottom: 16px;
-}
-.capsule-message {
-    font-size: 1.15rem;
-    line-height: 1.7;
-    opacity: .95;
+@keyframes confettiFall {
+    0% { transform: translateY(-10vh) rotate(0deg); opacity: 1; }
+    100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
 }
 
 
-/* Playlist */
-.playlist-item {
-    background: white;
-    border-left: 5px solid #ff6b6b;
-    border-radius: 14px;
-    padding: 16px 20px;
-    margin: 10px 0;
-    display: flex;
-    align-items: center;
-    gap: 14px;
-    box-shadow: 0 6px 16px rgba(0,0,0,.06);
+/* Bouncing elements */
+.bounce {
+    animation: bounce 2s ease-in-out infinite;
 }
-.playlist-emoji {
-    font-size: 2rem;
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-15px); }
 }
-.playlist-info {
-    flex: 1;
+
+
+/* Spin animation */
+.spin {
+    animation: spin 8s linear infinite;
 }
-.playlist-title {
-    font-weight: 700;
-    color: #4a6fa5;
-    font-size: 1.05rem;
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
 }
-.playlist-artist {
-    color: #718096;
-    font-size: 0.9rem;
+
+
+/* Pulse glow */
+.pulse-glow {
+    animation: pulseGlow 2s ease-in-out infinite;
+}
+@keyframes pulseGlow {
+    0%, 100% { filter: drop-shadow(0 0 10px rgba(255, 165, 2, 0.5)); }
+    50% { filter: drop-shadow(0 0 25px rgba(255, 165, 2, 0.8)); }
 }
 
 
 @media (max-width: 700px) {
-    .memory-grid, .gallery-grid { grid-template-columns: 1fr; }
+    .memory-grid { grid-template-columns: 1fr; }
     .hero { padding-top: 25px; }
-    .playlist-item { flex-direction: column; text-align: center; }
 }
 </style>
 """, unsafe_allow_html=True)
 
 
-# Floating decorative elements
-decorations = ["🎉", "✨", "🎈", "🌟", "🎊", "🦄", "⭐", "🌈", "🎁", "🍀"]
+# Corner decorations
+corner_items = ["🎈", "🎊", "🌟", "✨"]
+corner_positions = [
+    {"top": "20px", "left": "20px"},
+    {"top": "20px", "right": "20px"},
+    {"bottom": "80px", "left": "20px"},
+    {"bottom": "80px", "right": "20px"},
+]
+for item, pos in zip(corner_items, corner_positions):
+    style = ";".join([f"{k}:{v}" for k, v in pos.items()])
+    st.markdown(f'<div class="corner-decoration" style="{style};">{item}</div>', unsafe_allow_html=True)
+
+
+# Floating decorative elements (increased quantity)
+decorations = ["🎉", "✨", "🎈", "🌟", "🎊", "🦄", "⭐", "🌈", "🎁", "🍀", "🎂", "🧁", "🎪", "🎯", "🎨"]
 for i, item in enumerate(decorations):
     left = random.randint(3, 95)
     duration = random.randint(9, 18)
@@ -344,10 +388,23 @@ for i, item in enumerate(decorations):
     )
 
 
+# Twinkling stars
+stars = ["⭐", "✨", "🌟"]
+for i, star in enumerate(stars):
+    left = random.randint(10, 90)
+    top = random.randint(10, 80)
+    delay = random.randint(0, 2)
+    size = random.randint(14, 22)
+    st.markdown(
+        f'<div class="twinkle" style="left:{left}%;top:{top}%;font-size:{size}px;animation-delay:-{delay}s;">{star}</div>',
+        unsafe_allow_html=True
+    )
+
+
 # Hero
 st.markdown(f"""
 <div class="hero">
-    <div class="sparkles">✨ 🎉 ✨</div>
+    <div class="sparkles bounce">✨ 🎉 ✨</div>
     <div class="small-label">A little birthday surprise made for you</div>
     <h1>Happy Birthday,<br>{FRIEND_NAME}! 🎂</h1>
     <p>Today is officially a <b>you deserve all the happiness</b> kind of day.</p>
@@ -359,13 +416,12 @@ st.markdown(f"""
 c1, c2, c3 = st.columns([1, 1.4, 1])
 with c2:
     if st.button("🎊 LET'S CELEBRATE! 🎊", use_container_width=True):
-        st.session_state["confetti_clicked"] += 1
         st.balloons()
-        st.toast(f"✨ Birthday magic activated! ({st.session_state['confetti_clicked']}x) ✨", icon="🎉")
+        st.toast("✨ Birthday magic activated! ✨", icon="🎉")
         time.sleep(0.2)
 
 
-st.markdown('<div class="birthday-cake">🎂</div>', unsafe_allow_html=True)
+st.markdown('<div class="birthday-cake pulse-glow">🎂</div>', unsafe_allow_html=True)
 
 
 # Message
@@ -406,109 +462,6 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 
-# NEW: Memory Gallery
-st.markdown(f"""
-<div class="card">
-    <h2>📸 Memory Lane</h2>
-    <p class="message">Some moments that make you, YOU! Hover over each one.</p>
-</div>
-""", unsafe_allow_html=True)
-
-gallery_items = [
-    ("🎮", "That time we laughed way too hard"),
-    ("🍕", "Food adventures together"),
-    ("🎵", "Sing-it-out-loud moments"),
-    ("✈️", "Adventure awaits"),
-    ("📚", "Learning something new"),
-    ("🌙", "Late night conversations"),
-]
-
-cols = st.columns(3)
-for idx, item in enumerate(gallery_items):
-    with cols[idx % 3]:
-        st.markdown(f"""
-        <div class="gallery-item">
-            <span class="gallery-emoji">{item[0]}</span>
-            <span class="gallery-text">{item[1]}</span>
-        </div>
-        """, unsafe_allow_html=True)
-
-
-# NEW: Birthday Trivia Quiz
-st.markdown(f"""
-<div class="card">
-    <h2>🧠 How Well Do You Know {FRIEND_NAME}?</h2>
-    <p class="message">Let's test your birthday knowledge! (Just for fun!)</p>
-</div>
-""", unsafe_allow_html=True)
-
-trivia_questions = [
-    {
-        "question": "What's {FRIEND_NAME}'s favorite way to spend a weekend?".replace("{FRIEND_NAME}", FRIEND_NAME),
-        "options": ["Sleeping in", "Going on adventures", "Binge-watching shows", "All of the above"],
-        "answer": 3
-    },
-    {
-        "question": "If {FRIEND_NAME} could eat one food forever, it would be:".replace("{FRIEND_NAME}", FRIEND_NAME),
-        "options": ["Pizza", "Tacos", "Sushi", "Something sweet"],
-        "answer": 0
-    },
-    {
-        "question": "{FRIEND_NAME}'s superpower is:".replace("{FRIEND_NAME}", FRIEND_NAME),
-        "options": ["Making people laugh", "Being ridiculously kind", "Finding the best snacks", "All of the above"],
-        "answer": 3
-    },
-]
-
-if "current_question" not in st.session_state:
-    st.session_state["current_question"] = 0
-    st.session_state["trivia_score"] = 0
-    st.session_state["trivia_complete"] = False
-
-if not st.session_state.get("trivia_complete", False):
-    q = trivia_questions[st.session_state["current_question"]]
-    
-    st.markdown(f"""
-    <div class="trivia-container">
-        <div class="trivia-question">Question {st.session_state["current_question"] + 1}: {q["question"]}</div>
-    </div>
-    """, unsafe_allow_html=True)
-    
-    cols = st.columns(4)
-    for idx, option in enumerate(q["options"]):
-        with cols[idx]:
-            if st.button(option, key=f"q{st.session_state['current_question']}_opt{idx}", use_container_width=True):
-                if idx == q["answer"]:
-                    st.session_state["trivia_score"] += 1
-                    st.success("🎉 Correct!")
-                else:
-                    st.info(f"Nice try! The answer was: {q['options'][q['answer']]}")
-                
-                st.session_state["current_question"] += 1
-                if st.session_state["current_question"] >= len(trivia_questions):
-                    st.session_state["trivia_complete"] = True
-                    st.balloons()
-                st.rerun()
-else:
-    score = st.session_state["trivia_score"]
-    total = len(trivia_questions)
-    
-    if score == total:
-        message = f"🏆 Perfect score! You really know {FRIEND_NAME}!"
-    elif score >= total // 2:
-        message = f"🎉 Not bad! You know {FRIEND_NAME} pretty well!"
-    else:
-        message = f"😄 Time to hang out with {FRIEND_NAME} more!"
-    
-    st.success(f"{message} Score: {score}/{total}")
-    
-    if st.button("🔄 Play Again"):
-        st.session_state["current_question"] = 0
-        st.session_state["trivia_score"] = 0
-        st.session_state["trivia_complete"] = False
-        st.rerun()
-
-
 # Interactive wish generator
 st.markdown("""
 <div class="card">
@@ -541,59 +494,6 @@ if "wish" in st.session_state:
     )
 
 
-# NEW: Time Capsule Message
-st.markdown(f"""
-<div class="card">
-    <h2>⏰ Your Birthday Time Capsule</h2>
-    <p class="message">A message from the future... open when you're ready!</p>
-</div>
-""", unsafe_allow_html=True)
-
-if st.button("📦 Open Time Capsule", use_container_width=True):
-    st.markdown(f"""
-    <div class="capsule">
-        <div class="capsule-title">Dear {FRIEND_NAME},</div>
-        <div class="capsule-message">
-            Hey! It's future-you checking in. Just wanted to remind you that:<br><br>
-            ✨ You're doing better than you think<br>
-            🌟 The things you're working on now will pay off<br>
-            💫 You have people who believe in you (like me!)<br>
-            🎉 Keep going - great things are coming your way<br><br>
-            P.S. Don't forget to enjoy the little moments along the journey. 💕
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-    st.balloons()
-
-
-# NEW: Birthday Playlist
-st.markdown(f"""
-<div class="card">
-    <h2>🎵 Birthday Vibes Playlist</h2>
-    <p class="message">Some songs to get you in the birthday mood!</p>
-</div>
-""", unsafe_allow_html=True)
-
-playlist = [
-    ("🎉", "Happy", "Pharrell Williams", "Because it's YOUR day!"),
-    ("✨", "Good as Hell", "Lizzo", "You're doing amazing!"),
-    ("🌟", "Unwritten", "Natasha Bedingfield", "Your story is just beginning"),
-    ("🦋", "Brave", "Sara Bareilles", "Keep being your authentic self"),
-    ("🌈", "Here Comes the Sun", "The Beatles", "Brighter days ahead"),
-]
-
-for emoji, title, artist, note in playlist:
-    st.markdown(f"""
-    <div class="playlist-item">
-        <span class="playlist-emoji">{emoji}</span>
-        <div class="playlist-info">
-            <div class="playlist-title">{title}</div>
-            <div class="playlist-artist">{artist} · {note}</div>
-        </div>
-    </div>
-    """, unsafe_allow_html=True)
-
-
 # Secret button
 st.markdown("""
 <div class="card">
@@ -612,6 +512,6 @@ if st.button("💫 Open the Secret Message", use_container_width=True):
 
 st.markdown(f"""
 <div class="footer">
-    Made with 🎉 by {YOUR_NAME} · Hope you have an awesome birthday! 🎂
+    Hope you have an awesome birthday! 🎂
 </div>
 """, unsafe_allow_html=True)
