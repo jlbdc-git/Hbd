@@ -465,20 +465,19 @@ st.markdown(f"""
 <div class="card">
     <h2>📝 A Birthday Message</h2>
     <div class="message">
-        Hey <b>{FRIEND_NAME}</b>! <span class="star">🌟</span><br><br>
+    Happy birthday! Wishing you this new beginning brings you plenty of
+    smiles, laughter, fun discoveries, and memories that you want to
+    cherish forever.
+    <br><br>
 
-        Happy birthday! Wishing you this new beginning brings you plenty of
-        smiles, laughter, fun discoveries, and memories that you want to
-        cherish forever.
-        <br><br>
+    You deserve a whole day full of tasty food, lovely people,
+    delightful surprises, and absolutely <b>no worries</b>. ✨
+    <br><br>
 
-        You deserve a whole day full of tasty food, lovely people,
-        delightful surprises, and absolutely <b>no worries</b>. ✨
-        <br><br>
-
-        Continue being the amazing person you are, chase those dreams,
-        keep smiling, and never forget that there are people rooting for you.
-        On your birthday today and every day hereafter. 🎉
+    Continue being the amazing person you are, chase those dreams,
+    keep smiling, and never forget that there are people rooting for you.
+    On your birthday today and every day hereafter. 🎉
+        
     </div>
 </div>
 """, unsafe_allow_html=True)
