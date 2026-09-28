@@ -2,6 +2,12 @@ import random
 import time
 
 import streamlit as st
+import textwrap
+
+
+def render_html(html: str):
+    """Render trusted HTML/CSS without Markdown indentation turning it into code."""
+    st.markdown(textwrap.dedent(html), unsafe_allow_html=True)
 
 
 # ============================================================
@@ -22,11 +28,6 @@ st.set_page_config(
 
 FRIEND_NAME = "Shaznay"
 YOUR_NAME = "BM"
-
-def render_html(html: str):
-    """Render trusted HTML/CSS through Streamlit."""
-    st.markdown(html, unsafe_allow_html=True)
-
 
 
 # ============================================================
@@ -547,7 +548,7 @@ render_html(
     }
 
     </style>
-    """
+    """,
 )
 
 
@@ -589,7 +590,7 @@ for item in decorations:
             {item}
         </div>
         """,
-            )
+    )
 
 
 # ============================================================
@@ -619,7 +620,7 @@ render_html(
         </p>
 
     </div>
-    """
+    """,
 )
 
 
@@ -651,7 +652,7 @@ with column_2:
 # ============================================================
 
 render_html(
-    '<div class="birthday-cake">🎂</div>'
+    '<div class="birthday-cake">🎂</div>',
 )
 
 
@@ -712,7 +713,7 @@ render_html(
         </div>
 
     </div>
-    """
+    """,
 )
 
 
@@ -764,7 +765,7 @@ render_html(
         </div>
 
     </div>
-    """
+    """,
 )
 
 
@@ -891,7 +892,7 @@ render_html(
         </div>
 
     </div>
-    """
+    """,
 )
 
 
@@ -914,7 +915,7 @@ render_html(
         </p>
 
     </div>
-    """
+    """,
 )
 
 
@@ -953,7 +954,7 @@ if "wish" in st.session_state:
 
         </div>
         """,
-            )
+    )
 
 
 # ============================================================
@@ -974,7 +975,7 @@ render_html(
         </p>
 
     </div>
-    """
+    """,
 )
 
 
@@ -1030,7 +1031,7 @@ render_html(
         </p>
 
     </div>
-    """
+    """,
 )
 
 
@@ -1042,12 +1043,13 @@ render_html(
     f"""
     <div class="footer">
 
-        Because saying “Happy Birthday” wasn't dramatic enough. 😂🎂
+        Made with 🎀, questionable amounts of CSS,
+        and a little bit of effort by <b>{YOUR_NAME}</b>.
 
-        <br><br>
+        <br>
 
-        For <b>{FRIEND_NAME}</b>'s birthday 🎀
+        For <b>{FRIEND_NAME}</b>'s birthday 🎂
 
     </div>
-    """
+    """,
 )
