@@ -551,10 +551,33 @@ st.markdown("""
 
 
 if st.button("💫 Open the Secret Message", use_container_width=True):
-    st.success(
-        f"Whatever happens this year, remember: you are more appreciated than you probably realize. "
-        f"Happy birthday, {FRIEND_NAME}! 🎉🎂✨"
+
+    st.markdown(
+        f"""
+        <div style="
+            background: linear-gradient(135deg, #fff0f8, #f0e9ff);
+            border: 2px solid #d89adf;
+            border-radius: 20px;
+            padding: 22px;
+            margin-top: 15px;
+            text-align: center;
+        ">
+            <div style="
+                color: #9b59b6;
+                font-size: 1.2rem;
+                font-weight: 700;
+                line-height: 1.7;
+            ">
+                Whatever happens this year, remember: you are more appreciated
+                than you probably realize.
+                <br>
+                Happy birthday, {FRIEND_NAME}! 🎉🎂✨
+            </div>
+        </div>
+        """,
+        unsafe_allow_html=True
     )
+
     st.balloons()
 
 
