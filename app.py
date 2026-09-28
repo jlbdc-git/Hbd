@@ -25,7 +25,7 @@ YOUR_NAME = "BM"
 
 def render_html(html: str):
     """Render trusted HTML/CSS through Streamlit."""
-    render_html(html, unsafe_allow_html=True)
+    st.markdown(html, unsafe_allow_html=True)
 
 
 
@@ -589,8 +589,7 @@ for item in decorations:
             {item}
         </div>
         """,
-        unsafe_allow_html=True,
-    )
+            )
 
 
 # ============================================================
@@ -954,8 +953,7 @@ if "wish" in st.session_state:
 
         </div>
         """,
-        unsafe_allow_html=True,
-    )
+            )
 
 
 # ============================================================
@@ -1046,9 +1044,9 @@ render_html(
 
         Because saying “Happy Birthday” wasn't dramatic enough. 😂🎂
 
-        <br>
+        <br><br>
 
-        For <b>{FRIEND_NAME}</b>'s birthday 🎂
+        For <b>{FRIEND_NAME}</b>'s birthday 🎀
 
     </div>
     """
