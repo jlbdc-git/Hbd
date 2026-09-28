@@ -1,4 +1,3 @@
-
 import streamlit as st
 import random
 import time
@@ -84,6 +83,7 @@ html, body, [class*="css"] {
     letter-spacing: 18px;
     animation: sparkle 2s ease-in-out infinite alternate;
 }
+
 @keyframes sparkle {
     from { opacity: .45; transform: scale(.96); }
     to { opacity: 1; transform: scale(1.05); }
@@ -116,6 +116,7 @@ html, body, [class*="css"] {
     filter: drop-shadow(0 15px 20px rgba(255, 100, 170, .2));
     animation: cakeFloat 3s ease-in-out infinite;
 }
+
 @keyframes cakeFloat {
     0%,100% { transform: translateY(0) rotate(-1deg); }
     50% { transform: translateY(-12px) rotate(1deg); }
@@ -125,6 +126,7 @@ html, body, [class*="css"] {
     display: inline-block;
     animation: heartBeat 1.5s infinite;
 }
+
 @keyframes heartBeat {
     0%, 40%, 100% { transform: scale(1); }
     20% { transform: scale(1.22); }
@@ -135,6 +137,7 @@ html, body, [class*="css"] {
     grid-template-columns: repeat(3, 1fr);
     gap: 16px;
 }
+
 .memory {
     min-height: 130px;
     border-radius: 22px;
@@ -146,9 +149,11 @@ html, body, [class*="css"] {
     box-shadow: 0 12px 25px rgba(80,60,100,.13);
     transition: transform .25s ease;
 }
+
 .memory:hover {
     transform: translateY(-8px) rotate(1deg);
 }
+
 .m1 { background: linear-gradient(135deg,#ff80ab,#ffb36b); }
 .m2 { background: linear-gradient(135deg,#9b7cff,#d785ff); }
 .m3 { background: linear-gradient(135deg,#48c6ef,#6f86d6); }
@@ -183,6 +188,7 @@ html, body, [class*="css"] {
     animation: floatUp linear infinite;
     opacity: .7;
 }
+
 @keyframes floatUp {
     0% { transform: translateY(110vh) rotate(0deg); opacity:0; }
     15% { opacity:.75; }
@@ -198,12 +204,25 @@ html, body, [class*="css"] {
 """, unsafe_allow_html=True)
 
 # Floating decorative elements
-decorations = ["💖", "✨", "🌸", "🎀", "💗", "🌷", "⭐", "🦋", "💕", "🌈"]
+decorations = [
+    "🎉",
+    "✨",
+    "🌸",
+    "🎀",
+    "🎈",
+    "🌷",
+    "⭐",
+    "🦋",
+    "🍰",
+    "🌈"
+]
+
 for i, item in enumerate(decorations):
     left = random.randint(3, 95)
     duration = random.randint(9, 18)
     delay = random.randint(0, 8)
     size = random.randint(18, 34)
+
     st.markdown(
         f'<div class="floating" style="left:{left}%;font-size:{size}px;animation-duration:{duration}s;animation-delay:-{delay}s;">{item}</div>',
         unsafe_allow_html=True
@@ -212,55 +231,146 @@ for i, item in enumerate(decorations):
 # Hero
 st.markdown(f"""
 <div class="hero">
-    <div class="sparkles">✨ 💕 ✨</div>
-    <div class="small-label">A tiny surprise made just for you</div>
-    <h1>Happy Birthday,<br>{FRIEND_NAME}! 🎀</h1>
-    <p>Today is officially a <b>you deserve all the happiness</b> kind of day.</p>
+    <div class="sparkles">✨ 🎉 ✨</div>
+
+    <div class="small-label">
+        OFFICIAL BIRTHDAY NOTICE
+    </div>
+
+    <h1>
+        Happy Birthday,<br>{FRIEND_NAME}! 🎂
+    </h1>
+
+    <p>
+        Congratulations on successfully unlocking
+        another year of life! 😂🎉
+    </p>
 </div>
 """, unsafe_allow_html=True)
 
 # Celebration controls
 c1, c2, c3 = st.columns([1, 1.4, 1])
+
 with c2:
-    if st.button("🎉 LET'S CELEBRATE! 🎉", use_container_width=True):
+    if st.button(
+        "🎉 LET'S CELEBRATE! 🎉",
+        use_container_width=True
+    ):
         st.balloons()
-        st.toast("✨ Birthday magic activated! ✨", icon="🎀")
+        st.toast(
+            "🎉 Birthday celebration activated!",
+            icon="🎂"
+        )
         time.sleep(0.2)
 
-st.markdown('<div class="birthday-cake">🎂</div>', unsafe_allow_html=True)
+st.markdown(
+    '<div class="birthday-cake">🎂</div>',
+    unsafe_allow_html=True
+)
 
 # Message
 st.markdown(f"""
 <div class="card">
-    <h2>💌 A Little Birthday Message</h2>
+
+    <h2>🎂 A Completely Normal Birthday Message</h2>
+
     <div class="message">
-        Hey <b>{FRIEND_NAME}</b>! <span class="heart">💗</span><br><br>
-        Happy birthday! I hope this new chapter brings you so many reasons
-        to smile, laugh until your stomach hurts, discover new things,
-        and make memories you'll want to keep forever.
+
+        Hey <b>{FRIEND_NAME}</b>! 😂
+
         <br><br>
-        You deserve a day filled with good food, great people,
-        beautiful surprises, and absolutely <b>zero stress</b>.
+
+        Happy birthday!
+
+        <br><br>
+
+        Since apparently saying
+        <b>"Happy Birthday"</b>
+        like a normal person wasn't enough,
+        I decided to make an unnecessarily colorful website instead. 😂
+
+        <br><br>
+
+        Anyway, I hope you have a really good day —
+        good food, great people, plenty of laughs,
+        and absolutely <b>zero stress</b>.
+
         🌷✨
+
         <br><br>
-        Keep being your wonderful self, keep chasing the things that make
-        you happy, and don't forget that there are people cheering for you.
-        Today, tomorrow, and all the days after. 💕
+
+        Here's to another year of new experiences,
+        random memories, ridiculous moments,
+        and hopefully fewer problems. 😂
+
+        <br><br>
+
+        Keep doing your thing, keep growing,
+        and most importantly...
+
+        <b>don't forget to eat the cake.</b> 🍰
+
     </div>
+
 </div>
 """, unsafe_allow_html=True)
 
 # Fun facts / memories
 st.markdown("""
 <div class="card">
-    <h2>🌸 The Birthday Vibe</h2>
+
+    <h2>🎉 The Birthday Vibe</h2>
+
     <div class="memory-grid">
-        <div class="memory m1"><span style="font-size:2rem">😂</span><b>More laughs</b><small>Because life needs more ridiculous moments.</small></div>
-        <div class="memory m2"><span style="font-size:2rem">🌟</span><b>More adventures</b><small>New places, new memories, new stories.</small></div>
-        <div class="memory m3"><span style="font-size:2rem">🦋</span><b>More growth</b><small>Keep becoming the person you want to be.</small></div>
-        <div class="memory m4"><span style="font-size:2rem">🌷</span><b>More happiness</b><small>The kind that appears in tiny everyday moments.</small></div>
-        <div class="memory m5"><span style="font-size:2rem">🍰</span><b>More cake</b><small>This one is non-negotiable.</small></div>
-        <div class="memory m6"><span style="font-size:2rem">💖</span><b>More love</b><small>From the people who genuinely care about you.</small></div>
+
+        <div class="memory m1">
+            <span style="font-size:2rem">😂</span>
+            <b>More laughs</b>
+            <small>
+                Because life needs more ridiculous moments.
+            </small>
+        </div>
+
+        <div class="memory m2">
+            <span style="font-size:2rem">🌟</span>
+            <b>More adventures</b>
+            <small>
+                New places, new memories, new stories.
+            </small>
+        </div>
+
+        <div class="memory m3">
+            <span style="font-size:2rem">🦋</span>
+            <b>More growth</b>
+            <small>
+                Keep becoming the person you want to be.
+            </small>
+        </div>
+
+        <div class="memory m4">
+            <span style="font-size:2rem">🌷</span>
+            <b>More happiness</b>
+            <small>
+                The kind that appears in tiny everyday moments.
+            </small>
+        </div>
+
+        <div class="memory m5">
+            <span style="font-size:2rem">🍰</span>
+            <b>More cake</b>
+            <small>
+                This one is non-negotiable.
+            </small>
+        </div>
+
+        <div class="memory m6">
+            <span style="font-size:2rem">🎮</span>
+            <b>More fun</b>
+            <small>
+                More random moments worth remembering.
+            </small>
+        </div>
+
     </div>
 </div>
 """, unsafe_allow_html=True)
@@ -268,22 +378,31 @@ st.markdown("""
 # Interactive wish generator
 st.markdown("""
 <div class="card">
+
     <h2>🔮 Pick Your Birthday Wish</h2>
-    <p class="message">Click the button and let the birthday universe choose one for you.</p>
+
+    <p class="message">
+        Click the button and let the birthday universe
+        choose one for you.
+    </p>
+
 </div>
 """, unsafe_allow_html=True)
 
 wishes = [
     "🌸 May this year surprise you in the best possible ways.",
-    "✨ May you meet opportunities that feel like they were made for you.",
-    "💗 May you have more peaceful days and unforgettable nights.",
+    "✨ May you find plenty of reasons to laugh this year.",
+    "🎉 May your plans actually work out for once.",
     "🦋 May you grow without losing the things that make you, YOU.",
     "🌈 May your next chapter be brighter than you imagined.",
-    "🎀 May something you've secretly wished for finally happen.",
+    "🎀 May something you've been waiting for finally happen.",
     "⭐ May you always have a reason to look forward to tomorrow.",
 ]
 
-if st.button("🎁 Reveal My Birthday Wish", use_container_width=True):
+if st.button(
+    "🎁 Reveal My Birthday Wish",
+    use_container_width=True
+):
     st.session_state["wish"] = random.choice(wishes)
     st.balloons()
 
@@ -296,19 +415,38 @@ if "wish" in st.session_state:
 # Secret button
 st.markdown("""
 <div class="card">
+
     <h2>🤫 Psst... There's One More Thing</h2>
+
+    <p class="message">
+        There's a completely unnecessary secret message
+        hidden behind the button below. 😂
+    </p>
+
 </div>
 """, unsafe_allow_html=True)
 
-if st.button("💝 Open the Secret Message", use_container_width=True):
+if st.button(
+    "🎁 Open the Secret Message",
+    use_container_width=True
+):
     st.success(
-        f"Whatever happens this year, remember: you are more appreciated than you probably realize. "
-        f"Happy birthday, {FRIEND_NAME}! 💕🎂✨"
+        f"Anyway, {FRIEND_NAME} — happy birthday! "
+        f"Hope you have a great one and an even better year ahead. "
+        f"🎂🎉✨"
     )
+
     st.balloons()
 
+# Footer
 st.markdown(f"""
 <div class="footer">
-    Made with 💗 by {YOUR_NAME} · For one very special birthday girl 🎀
+
+    Because saying "Happy Birthday" wasn't dramatic enough. 😂🎂
+
+    <br>
+
+    For <b>{FRIEND_NAME}</b>'s birthday 🎉
+
 </div>
 """, unsafe_allow_html=True)
